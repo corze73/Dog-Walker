@@ -1,0 +1,124 @@
+/* CSS for placeholder images when real images are not available */
+
+/* Logo placeholder */
+.logo {
+    background: linear-gradient(45deg, #e74c3c, #f39c12);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.logo::after {
+    content: 'LOGO';
+}
+
+/* Hero image placeholder */
+.hero-image img {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.hero-image img::after {
+    content: 'Happy Dog Photo';
+}
+
+/* About image placeholder */
+.about-image img {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2c3e50;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.about-image img::after {
+    content: 'Your Photo with Dog';
+}
+
+/* Client image placeholders */
+.testimonial-author img {
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.testimonial-author img::after {
+    content: 'Client';
+}
+
+/* Fallback for missing images */
+img[src="images/logo.png"] {
+    background: linear-gradient(45deg, #e74c3c, #f39c12);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+img[src="images/logo.png"]::after {
+    content: 'LOGO';
+}
+
+img[src="images/hero-dog.jpg"] {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+img[src="images/hero-dog.jpg"]::after {
+    content: '🐕 Happy Dog';
+    font-size: 1.5rem;
+}
+
+img[src="images/about-me.jpg"] {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+img[src="images/about-me.jpg"]::after {
+    content: '👩‍🦰 You with Dog';
+}
+
+img[src^="images/client-"] {
+    background: #f8f9fa;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+img[src="images/client-1.jpg"]::after {
+    content: '👤';
+}
+
+img[src="images/client-2.jpg"]::after {
+    content: '👤';
+}
+
+img[src="images/client-3.jpg"]::after {
+    content: '👤';
+}

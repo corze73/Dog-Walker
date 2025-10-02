@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawSteps - Professional Dog Walking & Pet Sitting</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Professional placeholder styles for demo */
+        .demo-logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #e74c3c, #f39c12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.7rem;
+            box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+        }
+        
+        .demo-hero-img {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .demo-hero-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23667eea;stop-opacity:1" /><stop offset="100%" style="stop-color:%23764ba2;stop-opacity:1" /></linearGradient></defs><rect width="400" height="300" fill="url(%23bg)"/><circle cx="200" cy="150" r="60" fill="rgba(255,255,255,0.2)"/><path d="M170 130 Q200 100 230 130 L220 140 Q200 120 180 140 Z" fill="white" opacity="0.8"/><circle cx="185" cy="140" r="3" fill="%23333"/><circle cx="215" cy="140" r="3" fill="%23333"/><path d="M200 150 Q190 160 200 170 Q210 160 200 150" fill="%23333"/><text x="200" y="220" text-anchor="middle" fill="white" font-family="Arial" font-size="14" opacity="0.8">Professional Dog Walking</text></svg>') center/cover;
+        }
+        
+        .demo-about-img {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2c3e50;
+            font-size: 1rem;
+            flex-direction: column;
+            gap: 1rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .demo-about-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500"><defs><linearGradient id="aboutbg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23a8edea;stop-opacity:1" /><stop offset="100%" style="stop-color:%23fed6e3;stop-opacity:1" /></linearGradient></defs><rect width="400" height="500" fill="url(%23aboutbg)"/><circle cx="200" cy="200" r="80" fill="rgba(255,255,255,0.3)"/><circle cx="200" cy="180" r="25" fill="rgba(44,62,80,0.1)"/><path d="M175 200 Q200 170 225 200 L220 210 Q200 190 180 210 Z" fill="rgba(44,62,80,0.2)"/><circle cx="190" cy="200" r="2" fill="%232c3e50"/><circle cx="210" cy="200" r="2" fill="%232c3e50"/><path d="M200 210 Q195 215 200 220 Q205 215 200 210" fill="%232c3e50"/><circle cx="150" cy="300" r="30" fill="rgba(231,76,60,0.2)"/><path d="M140 290 Q150 280 160 290 L155 295 Q150 285 145 295 Z" fill="rgba(231,76,60,0.4)"/><circle cx="145" cy="295" r="1" fill="%23e74c3c"/><circle cx="155" cy="295" r="1" fill="%23e74c3c"/><text x="200" y="400" text-anchor="middle" fill="rgba(44,62,80,0.7)" font-family="Arial" font-size="16" font-weight="bold">Your Professional Photo</text><text x="200" y="420" text-anchor="middle" fill="rgba(44,62,80,0.5)" font-family="Arial" font-size="12">Replace with your image</text></svg>') center/cover;
+        }
+        
+        .demo-client-img {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #3498db, #9b59b6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .demo-client-img:nth-child(1) {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+        }
+        
+        .demo-client-img:nth-child(2) {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+        }
+        
+        .demo-client-img:nth-child(3) {
+            background: linear-gradient(45deg, #8e44ad, #9b59b6);
+        }
+        
+        .demo-client-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><circle cx="30" cy="20" r="8" fill="white" opacity="0.8"/><path d="M15 45 Q30 35 45 45 L45 60 L15 60 Z" fill="white" opacity="0.8"/></svg>') center/cover;
+        }
+        
+        .footer-logo-demo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #e74c3c, #f39c12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.7rem;
+            box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+        }
+        
+        /* Enhanced mobile responsiveness for demo elements */
+        @media (max-width: 768px) {
+            .demo-hero-img {
+                height: 300px;
+                font-size: 1rem;
+            }
+            
+            .demo-about-img {
+                height: 300px;
+                font-size: 0.9rem;
+            }
+            
+            .demo-client-img {
+                width: 50px;
+                height: 50px;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .demo-hero-img {
+                height: 250px;
+                font-size: 0.9rem;
+            }
+            
+            .demo-about-img {
+                height: 250px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="demo-logo">PS</div>
+                <span class="logo-text">PawSteps</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Because every tail deserves a trail</h1>
+                <p class="hero-subtitle">Professional dog walking and pet sitting services you can trust. Your furry friends deserve the best care while you're away.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('contact')">
+                        <i class="fas fa-calendar-alt"></i>
+                        Book a Walk
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('services')">
+                        <i class="fas fa-info-circle"></i>
+                        Learn More
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Happy Dogs</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5★</span>
+                        <span class="stat-label">Rating</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">3+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="demo-hero-img"></div>
+                <div class="floating-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Fully Insured</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Services Overview -->
+    <section class="services-overview">
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-walking"></i>
+                    </div>
+                    <h3>Dog Walking</h3>
+                    <p>Daily walks tailored to your dog's needs and energy level</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Puppy Visits</h3>
+                    <p>Special care and attention for your growing puppy</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Pet Sitting</h3>
+                    <p>In-home care while you're away for peace of mind</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <h3>Additional Care</h3>
+                    <p>Feeding, medication, and special needs support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Pet Parents Say</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial active">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Sarah is absolutely wonderful with our Golden Retriever, Max. He gets so excited when she arrives! We have complete peace of mind knowing he's in such caring hands."</p>
+                        <div class="testimonial-author">
+                            <div class="demo-client-img"></div>
+                            <div>
+                                <h4>Emma Thompson</h4>
+                                <span>Max's Mom</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Professional, reliable, and so loving with our rescue dog Luna. The photo updates during walks are the best part of my day!"</p>
+                        <div class="testimonial-author">
+                            <div class="demo-client-img"></div>
+                            <div>
+                                <h4>James Wilson</h4>
+                                <span>Luna's Dad</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"When we needed someone to watch Buddy overnight, Sarah went above and beyond. Buddy was relaxed and happy when we returned. Highly recommend!"</p>
+                        <div class="testimonial-author">
+                            <div class="demo-client-img"></div>
+                            <div>
+                                <h4>Lisa Chen</h4>
+                                <span>Buddy's Mom</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-nav">
+                <button class="nav-dot active" onclick="showTestimonial(0)"></button>
+                <button class="nav-dot" onclick="showTestimonial(1)"></button>
+                <button class="nav-dot" onclick="showTestimonial(2)"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="demo-about-img"></div>
+                    <div class="about-badge">
+                        <i class="fas fa-certificate"></i>
+                        <span>Certified</span>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h2 class="section-title">Hi, I'm Sarah!</h2>
+                    <p class="about-intro">A lifelong dog lover dedicated to providing the best care for your furry family members.</p>
+                    <p>With over 3 years of professional pet care experience, I understand that every dog is unique with their own personality, needs, and quirks. My mission is to provide personalized, loving care that gives you complete peace of mind.</p>
+                    
+                    <div class="about-values">
+                        <div class="value">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>Trust & Safety</h4>
+                                <p>Fully insured and bonded with background checks</p>
+                            </div>
+                        </div>
+                        <div class="value">
+                            <i class="fas fa-heart"></i>
+                            <div>
+                                <h4>Genuine Care</h4>
+                                <p>Your pets receive the same love I give my own</p>
+                            </div>
+                        </div>
+                        <div class="value">
+                            <i class="fas fa-smile"></i>
+                            <div>
+                                <h4>Fun & Exercise</h4>
+                                <p>Keeping tails wagging with engaging activities</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="certifications">
+                        <h4>Certifications & Training:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Pet First Aid Certified</li>
+                            <li><i class="fas fa-check"></i> Dog Behavior Specialist</li>
+                            <li><i class="fas fa-check"></i> Insured & Bonded</li>
+                            <li><i class="fas fa-check"></i> Background Checked</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Services</h2>
+            <div class="services-detailed">
+                <div class="service-item">
+                    <div class="service-header">
+                        <i class="fas fa-walking"></i>
+                        <h3>Dog Walking</h3>
+                    </div>
+                    <div class="service-options">
+                        <div class="option">
+                            <h4>30-Minute Walk</h4>
+                            <p>Perfect for senior dogs or quick potty breaks</p>
+                            <ul>
+                                <li>Neighborhood stroll</li>
+                                <li>Fresh water</li>
+                                <li>Photo updates</li>
+                            </ul>
+                        </div>
+                        <div class="option">
+                            <h4>60-Minute Adventure</h4>
+                            <p>Full exercise session for active dogs</p>
+                            <ul>
+                                <li>Park or trail hiking</li>
+                                <li>Play time</li>
+                                <li>Basic training reinforcement</li>
+                                <li>Detailed report</li>
+                            </ul>
+                        </div>
+                        <div class="option">
+                            <h4>Group Walks</h4>
+                            <p>Socialization with other friendly dogs</p>
+                            <ul>
+                                <li>Max 3 dogs</li>
+                                <li>Temperament matched</li>
+                                <li>Supervised play</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-header">
+                        <i class="fas fa-home"></i>
+                        <h3>Pet Sitting</h3>
+                    </div>
+                    <div class="service-options">
+                        <div class="option">
+                            <h4>Daily Visits</h4>
+                            <p>While you're at work or away for the day</p>
+                            <ul>
+                                <li>Feeding & fresh water</li>
+                                <li>Potty breaks</li>
+                                <li>Companionship</li>
+                                <li>Mail/package collection</li>
+                            </ul>
+                        </div>
+                        <div class="option">
+                            <h4>Overnight Care</h4>
+                            <p>In-home care while you travel</p>
+                            <ul>
+                                <li>Sleep at your home</li>
+                                <li>Maintain routine</li>
+                                <li>Plant watering</li>
+                                <li>Home security</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-header">
+                        <i class="fas fa-heart"></i>
+                        <h3>Additional Services</h3>
+                    </div>
+                    <div class="service-options">
+                        <div class="option">
+                            <h4>Puppy Care</h4>
+                            <p>Special attention for young dogs</p>
+                            <ul>
+                                <li>Multiple daily visits</li>
+                                <li>House training support</li>
+                                <li>Socialization</li>
+                            </ul>
+                        </div>
+                        <div class="option">
+                            <h4>Medication Administration</h4>
+                            <p>Reliable medication schedules</p>
+                        </div>
+                        <div class="option">
+                            <h4>Basic Grooming</h4>
+                            <p>Brushing and basic coat care</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Pricing</h2>
+            <p class="pricing-subtitle">Transparent, competitive rates with no hidden fees</p>
+            
+            <div class="pricing-table">
+                <div class="pricing-card">
+                    <h3>Dog Walking</h3>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <span class="service">30-minute walk</span>
+                            <span class="price">£15</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service">60-minute walk</span>
+                            <span class="price">£25</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service">Group walk (per dog)</span>
+                            <span class="price">£12</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Pet Sitting</h3>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <span class="service">Daily visit (30 min)</span>
+                            <span class="price">£18</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service">Extended visit (60 min)</span>
+                            <span class="price">£28</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service">Overnight care</span>
+                            <span class="price">£45</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Add-ons</h3>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <span class="service">Medication administration</span>
+                            <span class="price">£5</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service">Basic grooming</span>
+                            <span class="price">£10</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service">Plant watering</span>
+                            <span class="price">£3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing-notes">
+                <h4>Package Deals:</h4>
+                <ul>
+                    <li><strong>Weekly walks:</strong> Book 5 walks, get 1 free</li>
+                    <li><strong>Monthly regular service:</strong> 10% discount</li>
+                    <li><strong>Multiple pets:</strong> 20% off second pet, 30% off third</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Policies -->
+    <section class="policies">
+        <div class="container">
+            <h2 class="section-title">Important Policies</h2>
+            <div class="policies-grid">
+                <div class="policy-card">
+                    <i class="fas fa-calendar-times"></i>
+                    <h3>Cancellation Policy</h3>
+                    <ul>
+                        <li>24-hour notice for regular services</li>
+                        <li>48-hour notice for overnight sitting</li>
+                        <li>Emergency cancellations accepted</li>
+                        <li>Same-day cancellations charged 50%</li>
+                    </ul>
+                </div>
+
+                <div class="policy-card">
+                    <i class="fas fa-credit-card"></i>
+                    <h3>Payment Terms</h3>
+                    <ul>
+                        <li>Payment due upon service completion</li>
+                        <li>Cash, bank transfer, or PayPal accepted</li>
+                        <li>Weekly/monthly billing available</li>
+                        <li>Late payment fee: £5 after 7 days</li>
+                    </ul>
+                </div>
+
+                <div class="policy-card">
+                    <i class="fas fa-syringe"></i>
+                    <h3>Vaccination Requirements</h3>
+                    <ul>
+                        <li>Current rabies, DHPP vaccines required</li>
+                        <li>Flea and tick prevention recommended</li>
+                        <li>Health certificate for overnight stays</li>
+                        <li>Vaccination records must be provided</li>
+                    </ul>
+                </div>
+
+                <div class="policy-card">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>Behavior Policy</h3>
+                    <ul>
+                        <li>Dogs must be socialized and non-aggressive</li>
+                        <li>Behavioral assessment before first service</li>
+                        <li>Aggressive dogs cannot be accommodated</li>
+                        <li>Training support available</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Booking -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Book Your Dog's Next Adventure</h2>
+            <p class="contact-subtitle">Ready to give your furry friend the care they deserve? Get in touch!</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <a href="tel:+447123456789">+44 7123 456 789</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:hello@pawsteps.co.uk">hello@pawsteps.co.uk</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Service Area</h4>
+                            <p>Central London & Surrounding Areas</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Hours</h4>
+                            <p>Mon-Fri: 7am-7pm<br>Weekend: 8am-6pm</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="bookingForm">
+                    <h3>Request a Walk</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Needed *</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="30min-walk">30-minute Walk</option>
+                                <option value="60min-walk">60-minute Walk</option>
+                                <option value="group-walk">Group Walk</option>
+                                <option value="daily-visit">Daily Pet Visit</option>
+                                <option value="overnight">Overnight Sitting</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dog-name">Dog's Name *</label>
+                        <input type="text" id="dog-name" name="dog-name" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="breed">Breed</label>
+                            <input type="text" id="breed" name="breed">
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="text" id="age" name="age">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="preferred-date">Preferred Date</label>
+                        <input type="date" id="preferred-date" name="preferred-date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Special Requirements or Questions</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Tell me about your dog's personality, any special needs, or questions you have..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="footer-logo-demo">PS</div>
+                        <span>PawSteps</span>
+                    </div>
+                    <p>Professional dog walking and pet sitting services in London. Because every tail deserves a trail.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#services">Dog Walking</a></li>
+                            <li><a href="#services">Pet Sitting</a></li>
+                            <li><a href="#services">Puppy Care</a></li>
+                            <li><a href="#pricing">Pricing</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#about">About Me</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 PawSteps. All rights reserved. | Fully Insured & Bonded</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
